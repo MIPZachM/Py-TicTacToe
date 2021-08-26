@@ -23,29 +23,58 @@ def get_input():
     global row1, row2, row3, p2_turn
 
     if not p2_turn:
-        user_input = input("Player 1, please enter a row and column as 'row (1-3),column (1-3)': ").replace("'","")
-        row,column = int(user_input.split(",")[0]), int(user_input.split(",")[1])
+        while True:
+            user_input = input(
+                "Player 1, please enter a row and column as 'row (1-3),column (1-3)': ").replace("'","")
+            row,column = int(user_input.split(",")[0]), int(user_input.split(",")[1])
 
-        if row == 1:
-            row1[column - 1] = 'X'
-        elif row == 2:
-            row2[column - 1] = 'X'
-        elif row == 3:
-            row3[column - 1] = 'X'
-        else:
-            print("Invalid input, please try again!")
+            if row == 1:
+                if row1[column - 1] is ' ':
+                    row1[column - 1] = 'X'
+                    break
+                else:
+                    print(' *** There is already a symbol there. Please try again! ***')
+            elif row == 2:
+                if row2[column - 1] is ' ':
+                    row2[column - 1] = 'X'
+                    break
+                else:
+                    print(' *** There is already a symbol there. Please try again! ***')
+            elif row == 3:
+                if row3[column - 1] is ' ':
+                    row3[column - 1] = 'X'
+                    break
+                else:
+                    print(' *** There is already a symbol there. Please try again! ***')
+            else:
+                print(" *** Invalid input. Please try again!")
     else:
-        user_input = input("Player 2, please enter a row and column as 'row (1-3),column (1-3)': ").replace("'","")
-        row,column = int(user_input.split(",")[0]), int(user_input.split(",")[1])
+        while True:
+            user_input = input(
+                "Player 2, please enter a row and column as 'row (1-3),column (1-3)': ").replace("'", "")
+            row, column = int(user_input.split(",")[0]), int(
+                user_input.split(",")[1])
 
-        if row == 1:
-            row1[column - 1] = 'O'
-        elif row == 2:
-            row2[column - 1] = 'O'
-        elif row == 3:
-            row3[column - 1] = 'O'
-        else:
-            print("Invalid input, please try again!")
+            if row == 1:
+                if row1[column - 1] is ' ':
+                    row1[column - 1] = 'O'
+                    break
+                else:
+                    print(' *** There is already a symbol there. Please try again! ***')
+            elif row == 2:
+                if row2[column - 1] is ' ':
+                    row2[column - 1] = 'O'
+                    break
+                else:
+                    print(' *** There is already a symbol there. Please try again! ***')
+            elif row == 3:
+                if row3[column - 1] is ' ':
+                    row3[column - 1] = 'O'
+                    break
+                else:
+                    print(' *** There is already a symbol there. Please try again! ***')
+            else:
+                print(" *** Invalid input. Please try again!")
     
     p2_turn = not p2_turn
 
